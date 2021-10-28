@@ -1,0 +1,65 @@
+% !TeX root = ../main.tex
+
+A \textbf{persistence module} $\UU$ over $\RR$ is an indexed family of vector spaces $\{U_s\}$ and linear maps $\{u_s^t : U_s\to U_t\}$ such that $u^t_s\circ u_r^s = u_r^t$ whenever $r\leq s\leq t$ and $u_s^s$ is the identity on $U_s$.
+A \textbf{homomorphism} $\Gamma$ between two $\RR$-persistence modules $\UU, \VV$ is a collection of linear maps $\{\gamma_s : U_s\to V_s\}$ such that the following diagram commutes for all $s\leq t$.
+\begin{equation}\label{dgm:homomorphism}
+  \begin{tikzcd}
+    U_s\arrow{r}{u_s^t}\arrow{d}{\gamma_s} &
+    U_t\arrow{d}{\gamma_t}\\
+    %
+    V_s\arrow{r}{v_s^t} &
+    V_t
+\end{tikzcd}\end{equation}
+The space of homomorphisms from $\UU$ to $\VV$ will be denoted $\Hom(\UU, \VV)$.
+
+\paragraph{Shifted Homomorphisms}
+
+A \textbf{homomorphism of degree $\delta$} is a collection $F$ of linear maps $f_s : U_s\to V_{s+\delta}$ such that the following diagram commutes for all $s\leq t$.
+
+\begin{equation}\label{dgm:shifted_homomorphism}
+  \begin{tikzcd}
+    U_s\arrow{r}{u_s^t}\arrow{d}{f_s} &
+    U_t\arrow{d}{f_t}\\
+    %
+    V_{s+\delta}\arrow{r}{v_{s+\delta}^{t+\delta}} &
+    V_{t +\delta}
+\end{tikzcd}\end{equation}
+The space of homomorphisms of degree $\delta$ from $\UU$ to $\VV$ will be denoted $\Hom^\delta(\UU, \VV)$.
+For $\Gamma\in\Hom(\UU,\VV)$ let $\Gamma[\delta]\in\Hom^\delta(\UU,\VV)$ denote the homomorphism of degree $\delta$ defined as the family of linear maps $\gamma_s[\delta] := v_s^{s+\delta}\circ \gamma_s = \gamma_{s+c\delta}\circ u_s^{s+c\delta}$ for $s\in\RR$.
+
+Two persistence modules $\UU$ and $\VV$ are \textbf{$\delta$-interleaved} if there exist homomorphisms $F\in\Hom^\delta(\UU, \VV)$ and $M \in\Hom^\delta(\VV,\UU)$ such that the following diagrams commute for all $s$.
+
+\begin{minipage}{0.45\textwidth}
+\begin{equation}\label{dgm:interleaving1}
+  \begin{tikzcd}
+    U_{s-\delta}\arrow{rr}{u_{s-\delta}^{s+\delta}}\arrow{dr}{f_{s-\delta}} & &
+    U_{s+\delta}\\
+    %
+    & V_{s}\arrow{ur}{m_s} &
+\end{tikzcd}\end{equation}
+\end{minipage}
+\begin{minipage}{0.45\textwidth}
+\begin{equation}\label{dgm:interleaving2}
+  \begin{tikzcd}
+    & U_{s}\arrow{dr}{f_s} &\\
+    %
+    V_{s-\delta}\arrow{rr}{v_{s-\delta}^{s+\delta}}\arrow{ur}{m_{s-\delta}} & &
+    V_{s+\delta}
+\end{tikzcd}\end{equation}
+\end{minipage}
+
+% \paragraph{Image Module Homomorphisms}
+%
+% For module homomorphisms $\Gamma\in\Hom(\UU,\VV)$ and $\Lambda\in\Hom(\AA,\BB)$ we will refer to a pair $(F,G)\in\Hom^\delta(\UU,\AA)\times\Hom^\delta(\VV,\BB)$ as an \textbf{image module homomorphism} from $\im~\Gamma$ to $\im~\Lambda$ if the following diagram commutes for all $s\leq t$.
+%
+% \begin{equation}\label{dgm:image_homomorphism}
+% \begin{tikzcd}[column sep=large]
+%     U_{s}\arrow{r}{\gamma_s[t-s]}\arrow{d}{f_s} &
+%     V_{t}\arrow{d}{g_t} \\
+%     %
+%     A_{s+\delta}\arrow{r}{\lambda_{s+\delta}[t-s]} &
+%     B_{t+\delta}
+% \end{tikzcd}
+% \end{equation}
+% The space of image module homomorphisms of degree $\delta$ from $\im~\Gamma$ to $\im~\Lambda$ will be denoted $\Hom^\delta(\im~\Gamma, \im~\Lambda)$.
+% Note that, for $\Gamma\in\Hom(\UU,\VV)$ and $\Lambda\in\Hom(\AA,\BB)$, $(F,G)\in\Hom^\delta(\im~\Gamma, \im~\Lambda)$ implies $F\in\Hom^\delta(\UU,\AA)$ and $G\in \Hom^\delta(\VV,\BB)$.

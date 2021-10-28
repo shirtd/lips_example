@@ -1,0 +1,54 @@
+% !TeX root = ../main.tex
+
+\paragraph{Simplicial homology}
+
+For a simplicial complex $K$ (either abstract or geometric) let $C_k(K)$ denote the vector space over a field $\FF$ consisting of linear combinations of $k$-simplices in $K$ known as \textbf{$k$-chains}.
+These vector spaces are connected by \textbf{boundary maps} $\partial_k: C_k(K)\to C_{k-1}(K)$ which are linear transformations taking basis elements of $C_k(K)$ to the abstract sum of basis $(k-1)$-simplex faces.
+The collection of chains and boundary maps forms a sequence of vector spaces known as the \textbf{chain complex} of $K$.
+% We can define a chain complex, known as the singular chain complex, in a similar way for any topological space $X$.
+% Throughtout, we will refer to the simplicial homology of a complex $K$ and the singular homology of
+% We will primarily be using singular homology over a field $\FF$ so that the homology groups $\hom_k(X)$ of a topological space $X$ are vector spaces.
+% For a full treatment of both singular and simplicial homology see Hatcher~\cite{hatcher01}.
+
+An important property of the boundary maps $\partial_k$ is that the composition of subsequent boundary maps is zero.
+That is, $\partial_k\circ\partial_{k-1} = 0$ for all $k$.
+% As a result the image of $\partial_{k+1}$, denoted $\im~\partial_{k+1} = \{\partial_{k+1}c\mid c\in C_{k+1}(K)\}$ is a subspace of the kernel, $\ker~\partial_k = \{c\in C_k(K)\mid \partial_k c = 0\}$, of $\partial_k$.
+As a result the image of $\partial_{k+1}$, denoted $\im~\partial_{k+1}$ is a subspace of the kernel, $\ker~\partial_k$, of $\partial_k$.
+A \textbf{$k$-cycle} is a $k$-chain with empty boundary---an element of $\ker~\partial_k$.
+Two cycles in $\ker~\partial_k$ are said to be \textbf{homologous} if they differ by an element of $\im~\partial_{k+1}$.
+
+The \textbf{$k$th (simplicial) homology groups} of a simplicial complex $K$ is the quotient group $\hom_k(K) = \ker~\partial_k/\im~\partial_{k+1}$ and will use the notation $\hom_*$ to refer to the homology groups of all dimensions $k$.
+Elements of $\hom_k(K)$ are equivalence classes $[x]$ of homologous $k$ cycles.
+That is, if $[x] = [y]$ for any $x,y\in C_k(K)$ then $x = y +\partial_{k+1}(z)$ for some $z\in C_{k+1}(K)$.
+
+\paragraph{The equivalence of simplicial and singular homology}
+
+% Using simplicial homology, we can compute the homology of a space $X$ using a triangulation of $X$.
+The homology of the space $X$ can be formalized more directly using \textbf{singular homology}, defined in terms of continuous maps from the standard $n$-simplex to the space $X$ called \textbf{singular $k$-simplices}.
+Importantly, given a simplicial complex $K$, the singular homology of the polytope $|K|$ is isomorphic to the simplicial homology of $K$.
+Moreover, this isomorphism is natural in the sense that it commutes with homomorphisms induced by continuous maps (Munkres~\cite{munkres84elements}, Theorem 34.5).
+When $K$ is a triangulation of $X$ it follows that the simplicial homology of $K$ is naturally isomorphic to the singular homology of $X$.
+We will therefore use the notation $\hom_*$ to refer to both the simplicial homology of complexes and the singular homology of spaces.
+Moreover, we will be computing homology over a field $\FF$ so that the homology groups are vector spaces.
+For a full treatment of singular homology see Munkres~\cite{munkres84elements}.
+
+
+% % % We will assume the reader is familiar with homology, and refer to Hatcher~\cite{hatcher01} for a full treatment.
+% % Throughout we will be using homology over a field $\FF$ so that the homology groups $\hom_k(X)$ of a topological space $X$ are vector spaces.
+% % We will use the notation $\hom_*(X)$ to refer to the homology of $X$ for all dimensions $k$.
+% % We will use the notation $\hom_*(X\hookrightarrow Y)$ to denote a map in homology induced by inclusion $X\subseteq Y$.
+%
+% \paragraph{Interpreting the homology of a space}
+%
+% The dimension of a homology group is of particular importance and is known as a \textbf{Betti number} $\beta_k = \dim~\hom_k(X)$.
+% The Betti numbers are topological invariants that count equivalence classes of $k$-cycles that are \emph{not} the boundary of $(k+1)$-chains.
+% These equivalence classes are more often described as $k$-dimensional ``holes'' in a topological space, where $0$-dimensional holes are connected components, $1$-dimensional holes are loops, $2$-dimensional holes are voids, and so on.
+% The homology groups not only count these homological features but also provide a partition of the $k$-cycles into equivalence classes.
+% In practice, one can recover representative cycles for homology groups that have interesting geometric and topological significance.
+%
+% % Let $\hom_*(X, Y)$ denote the \textbf{relative homology} of a pair $(X,Y)$.
+% % We will make extensive use of the \textbf{excision} axiom of homology which states that for any $A\subset Y$ such that $\cl_X(A)\subseteq \intr_X(Y)$ the inclusion of pairs $(X\setminus A, Y\setminus A)\hookrightarrow (X, Y)$ induces an isomorphism on relative homology groups.
+% %
+% % Many of our theorem statements will be for a \textbf{$d$-manifold} $D$, defined to be a Hausdorff space in which every point in $D$ has an open neighborhood homeomorphic to $\R^d$.
+% % Specifically, we will require that $D$ is \textbf{orientable} in order to apply Poincar\'e Duality, and note that every manifold is orientable when using singular homology over the field $\FF_2$.
+% % We refer the reader to Hatcher~\cite{hatcher01} for a full treatment of manifolds, orientations, and duality.

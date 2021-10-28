@@ -1,0 +1,26 @@
+% !TeX root = ../main.tex
+
+Let $P = \{p_1,\ldots, p_n\}\subset X\subseteq \RR^d$ be $n$-point sample of a subspace $X$ of $\RR^d$ and let $f : X\to \RR$ be a $c$-Lipschitz function on $X$.
+Given only function values $f(p_1),\ldots, f(p_n)$ on the points of $P$ the \textbf{max Lipschitz extension} of $f$ on $P$ is defined
+\[ \check{f}(x) := \min_{p\in P} f(p) + c\| x - p\|,\]
+and the \textbf{min Lipschitz extension} of $f$ on $P$ is defined
+\[ \hat{f}(x) := \max_{p\in P} f(p) - c\| x - p\|.\]
+Let $\check{\F}$ and $\hat{\F}$ denote the sub level set filtrations of $\check{f}$ and $\hat{f}$, respectively.
+
+For $P = \{p_1 < \ldots < p_n\}\subset\RR$ triangulate $X = [p_1, p_n]$ by a simplicial complex $K$ with $n$ vertices $V=\{v_1,\ldots, v_n\}$ and $n-1$ edges $e_i = [v_i, v_{i+1}]$ for $i=1,\ldots, n-1$.
+% the max and min lipschitz extensions can be made piecewise linear on refinements $\check{P}$ and $\hat{P}$ by adding points
+% \[ \check{x}_i = \frac{f(p_i) + f(p_{i+1})}{2} + \frac{\| p_{i+1} - p_i\|}{2c}\text{ and } \hat{x}_i = \frac{f(p_i) + f(p_{i+1})}{2} - \frac{\| p_{i+1} - p_i\|}{2c},\]
+% respectively, for $i = 1,\ldots, n-1$.
+% Let $K$ be a triangulation of $X$ with $n$ vertices $V=\{v_1,\ldots, v_n\}$ and $n-1$ edges $e_i = [v_i, v_{i+1}]$ for $i=1,\ldots, n-1$.
+Let $K^*$ denote the first barycentric subdivision of $K$ with $2n-1$ vertices $V^*$, denoted $v_i^*$ and $e_i^*$, corresponding to the simplices in $K$.
+Let $\check{\varphi}\geq\hat{\varphi} : V^*\to\RR$ be defined for vertices $v_i$ as
+\[ \check{\varphi}(v_i^*) = \check{f}(p_i),\ \hat{\varphi}(v_i^*) = \hat{f}(p_i),\]
+and edges $e_i$ as
+\[ \check{\varphi}(e_i^*) = \frac{f(p_i) + f(p_{i+1}) + c\|p_{i+1} - p_i\|}{2},\ \hat{\varphi}(e_i^*) = \frac{f(p_i) + f(p_{i+1}) - c\|p_{i+1} - p_i\|}{2}.\]
+
+Because $\check{f}\geq \hat{f}$ we have a homomorphism $\H(\check{\F})\to\H(\hat{\F})$ of persistence modules induced by inclusions $\check{F}_s\hookrightarrow \hat{F}_t$ for $s\leq t\in\RR$.
+Similarly, because $\check{\varphi}\geq\hat{\varphi}$ we have a homomorphism $\H(\check{\Phi}^I)\to\H(\hat{\Phi}^I)$ induced by inclusions $\check{\Phi}_s^I\hookrightarrow\hat{\Phi}_t^I$ for all $s\leq t\in\RR$.
+Let $\H(\check{\F}\hookrightarrow \hat{\F})$ and $\H(\check{\Phi}^I\hookrightarrow \hat{\Phi}^I)$ denote images of these homomorphisms, themselves persistence modules.
+
+It is a straightforward exercise to construct homeomorphisms $\check{h},\hat{h} : |K^*|\to \RR$ such that $\check{f}\circ\check{h}$ is the linear extension of $\check{\varphi}$, and $\hat{f}\circ\hat{h}$ is the linear extension of $\hat{\varphi}$.
+Corollary~\ref{cor:induce_sublevel_iso} therefore implies that there are isomorphisms $\H(\check{\Phi})\to \H(\check{\F})$ and $\H(\hat{\Phi})\to \H(\hat{\F})$ that commute with maps induced by inclusion, thus $\H(\check{\Phi}^I\hookrightarrow \hat{\Phi}^I)\cong \H(\check{\F}\hookrightarrow \hat{\F})$.

@@ -1,0 +1,59 @@
+% !TeX root = ../main.tex
+
+% \paragraph{Simplicial complexes (Munkres~\cite{munkres84elements}, Chapter 1)}
+%
+% Given a collection of $k+1$ affinely independent points $P = \{p_0,\ldots,p_k\}$ in $\RR^d$ for some $d\geq k$ the \textbf{(geometric) $k$-simplex} $\underline{\sigma}$ spanned by $P$ is the set of points $x\in\RR^d$ such that
+% \[ x = \sum_{i=0}^k t_i p_i\text{ and }\sum_{i=0}^k t_i = 1\]
+% and $t_i\geq 0$ for all $i$.
+% The points $P$ that span a simplex are called its \textbf{vertices}, and the number $k = |P| - 1$ is its \textbf{dimension}.
+% The \textbf{faces} of a are the simplices spanned by subsets of $P$, with simplices spanned by proper subsets referred to as \textbf{proper faces}.
+% The \textbf{boundary} of a simplex is the union its proper faces.
+% A \textbf{(geometric) simplicial complex} $\underline{K}$ is a collection of simplices such that
+% \begin{enumerate}
+%   \item Every face of a simplex of $\underline{K}$ is in $\underline{K}$,
+%   \item The intersection of any two simplices of $\underline{K}$ is a face of each of them.
+% \end{enumerate}
+
+\paragraph{Abstract simplicial complexes}
+
+% While the geometric formulation of simplicial complexes offers to refer to simplices as collections of vertices alone.
+
+An \textbf{abstract simplicial complex} $K$ with vertex set $V$ is a collection of subsets $\sigma\subseteq V$ such that $\tau\in K$ for all $\tau\subseteq \sigma$.
+The elements of an abstract simplicial complex $K$ are called \textbf{simplices}.
+The \textbf{faces} of a simplex $\sigma$ are the subsets $\tau\subseteq\sigma$, and the \textbf{proper faces} of $\sigma$ are the proper subsets $\tau\subset \sigma$.
+The dimension of a simplex $\sigma$ is $\dim~\sigma = |\sigma|-1$, and the \textbf{codimension} of a proper face $\tau\subset \sigma$ is the difference $\dim~\sigma - \dim~\tau$.
+A simplex of dimension $k$ is referred to as a $k$-simplex.
+The \textbf{$k$-skeleton} of a simplicial complex $K$ is the collection of $k$-simplices, and is denoted $K_k$.\footnote{Unfortunate.}
+
+\paragraph{Geometric realizations and polytopes}
+
+
+% The \textbf{boundary} of a geometric simplex $|\sigma|$ is the union of (geometric) simplices $|\tau|$ spanned by proper faces $\tau\subset \sigma$, and is denoted $\bd~\sigma$.
+
+Given an abstract simplicial complex $K$ with $n$ vertices $V$ corresponding to affinely independent points $P\subset\RR^d$ for some $d\geq n$, a \textbf{geometric realization} of $K$ is the collection of geometric simplices spanned by the simplices of $K$.
+For an abstract simplicial complex $K$ with $n$ vertices the canonical geometric realization $\underline{K}$ of $K$ is the geometric realization of $K$ in $\RR^n$ given by a correspondence between the vertices $V$ of $K$ and the standard basis vectors of $\RR^n$, denoted $\underline{V}$.
+
+For any $k$-simplex $\sigma\in K$ let $|\sigma|\subset\RR^n$ denote the corresponding geometric $k$-simplex, or geometric realization, of $\sigma$ in $\underline{K}$.
+That is,
+\[ |\sigma| = \left\{ \sum_{v\in\sigma} t_v \underline{v}\in\RR^n\ \middle\vert\  \sum_{v\in\sigma} t_v = 1,\ t_v\geq 0\right\}.\]
+The \textbf{faces} of $|\sigma|$ correspond to the faces of $\sigma$: geometric simplices $|\tau|$ spanned by subsets of $\sigma$.
+% The \textbf{boundary} of a geometric simplex is the union its proper faces.
+The \textbf{polytope} or \textbf{underlying space} $|K|$ of $K$ is the subspace of $\RR^n$ given by the union of geometric simplices in $\underline{K}$.
+Now, any $x\in |K|$ can be expressed as an affine combination $x= \sum_{v\in V} x_v\underline{v}$ of basis vectors $\underline{V}$.
+Here, the coefficients $x_v$ are called the \textbf{barycentric coordinates} of $x\in |K|$.
+Given a topological space $X$, a \textbf{triangulation} of $X$ is a simplicial complex $K$ and a homeomorphism $h : |K|\to X$ from the polytope of its geometric realization to the space $X$.
+
+% \paragraph{Simplicial and singular chains}
+%
+% Given a simplicial complex $K$ (either abstract or geometric) a \textbf{$k$-chain} is a formal sum $\sum_{\sigma\in K_k} c_\sigma \sigma$ of $k$-simplices in $K$ with coeffiecients in a field $\FF$.
+% The collection of $k$-chains forms an abelian group $C_k(K)$ with the $k$-simplices of $K$ as a basis called the \textbf{$k$th (simplicial) chain group}.
+% The \textbf{boundary} of a simplex $\sigma\in K$ is the...
+% The \textbf{simplicial chain complex} of $K$ is the sequence
+% \[\ldots\to C_n(K)\xrightarrow{\partial_n}\ldots \to C_1(K)\xrightarrow{\partial_1} C_0(K)\]
+% of chain groups and boundary homomorphisms .
+%
+% While the simplicial chain groups provide an intuitive way to define homology in terms of simplices, they fail to formalize the homology of arbitrary topological spaces.
+% A \textbf{singular $n$-simplex} on a topological space $X$ is a map $\sigma : \Delta^n\to X$ from the \textbf{standard $n$-simplex} $\Delta^n$...
+%
+% Importantly, there is a natural isomorphism between the simplicial and singular homology groups.
+% In particaular, the simplicial homology of an abstract simplicial complex $K$ and its polytope $|K|$ are naturally isomorphic.
