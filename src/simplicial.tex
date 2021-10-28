@@ -1,0 +1,26 @@
+% !TeX root = ../main.tex
+
+% \paragraph{Simplicial complexes (Munkres~\cite{munkres84elements}, Chapter 1)}
+%
+Given a collection of $k+1$ affinely independent points $\sigma = \{v_0,\ldots,v_k\}$ in $\RR^d$ for some $d\geq k$ a \textbf{$k$-simplex} spanned by $\sigma$ is the set of points $x\in\RR^d$ such that
+\[ x = \sum_{i=0}^k t_i v_i\text{ and }\sum_{i=0}^k t_i = 1\]
+and $t_i\geq 0$ for all $i$.
+The points $v_i$ that span a simplex are called its \textbf{vertices}, and the number $k = |V| - 1$ is its \textbf{dimension}.
+The \textbf{faces} of a are the simplices spanned by subsets of $P$, with simplices spanned by proper subsets referred to as \textbf{proper faces}.
+The \textbf{boundary} of a simplex is the union its proper faces.
+A \textbf{simplicial complex} $K$ is a collection of simplices such that
+\begin{enumerate}
+  \item Every face of a simplex of $K$ is in $K$,
+  \item The intersection of any two simplices of $K$ is a face of each of them.
+\end{enumerate}
+Here, we refer to simplices by their vertex set, denoting $v_i\in\sigma$ to refer to the vertices of a simplex $\sigma$, and $x\in |sigma|$ to refer to affine combinations of these vertices, letting
+\[ |\sigma| = \{ \sum_{i=0}^k t_i v_i\mid \sum_{i=0}^k t_i = 1,\ t_i\geq 0\}\]
+denote a \textbf{geometric simplex}.
+% and $x\in |\sigma|$ to refer to points $x = \sum_{i=0}^k t_i v_i$ such that $\sum_{i=0}^k t_i = 1$.
+% It is often convenient to specify a simplicial complex as a collection of subsets of a vertex set $V$ known as an \textbf{abstract simplicial complex}.
+
+Throughout, we will consider simplicial complexes $K$ with $n$ vertices $V$ canonically embedded in $\RR^n$.
+That is, vertices $v_1,\ldots, v_n$ in $V$ correspond to standard basis vectors in $\RR^n$.
+The \textbf{geometric realization} o r \textbf{polytope} $|K|$ of $K$ is the subspace of $\RR^n$ given by the union of geometric simplices $|\sigma|$.
+Any $x\in |K|$ can be expressed as an affine combination $x = \sum_{v\in V} x_v$ of basis vectors $V$, where the coefficients $x_v$ are called the \textbf{barycentric coordinates} of $x\in |K|$.
+Given a topological space $X$, a \textbf{triangulation} of $X$ is a simplicial complex $K$ and a homeomorphism $h : |K|\to X$ from its geometric realization to the space $X$.

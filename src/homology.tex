@@ -2,7 +2,7 @@
 
 \paragraph{Simplicial homology}
 
-For a simplicial complex $K$ (either abstract or geometric) let $C_k(K)$ denote the vector space over a field $\FF$ consisting of linear combinations of $k$-simplices in $K$ known as \textbf{$k$-chains}.
+For a simplicial complex $K$ let $C_k(K)$ denote the vector space over a field $\FF$ consisting of linear combinations of $k$-simplices in $K$ known as \textbf{$k$-chains}.
 These vector spaces are connected by \textbf{boundary maps} $\partial_k: C_k(K)\to C_{k-1}(K)$ which are linear transformations taking basis elements of $C_k(K)$ to the abstract sum of basis $(k-1)$-simplex faces.
 The collection of chains and boundary maps forms a sequence of vector spaces known as the \textbf{chain complex} of $K$.
 % We can define a chain complex, known as the singular chain complex, in a similar way for any topological space $X$.
@@ -13,13 +13,14 @@ The collection of chains and boundary maps forms a sequence of vector spaces kno
 An important property of the boundary maps $\partial_k$ is that the composition of subsequent boundary maps is zero.
 That is, $\partial_k\circ\partial_{k-1} = 0$ for all $k$.
 % As a result the image of $\partial_{k+1}$, denoted $\im~\partial_{k+1} = \{\partial_{k+1}c\mid c\in C_{k+1}(K)\}$ is a subspace of the kernel, $\ker~\partial_k = \{c\in C_k(K)\mid \partial_k c = 0\}$, of $\partial_k$.
-As a result the image of $\partial_{k+1}$, denoted $\im~\partial_{k+1}$ is a subspace of the kernel, $\ker~\partial_k$, of $\partial_k$.
+As a result the image of $\partial_{k+1}$, denoted $\im~\partial_{k+1}$, is a subspace of the kernel of $\partial_k$, denoted $\ker~\partial_k$.
 A \textbf{$k$-cycle} is a $k$-chain with empty boundary---an element of $\ker~\partial_k$.
 Two cycles in $\ker~\partial_k$ are said to be \textbf{homologous} if they differ by an element of $\im~\partial_{k+1}$.
 
-The \textbf{$k$th (simplicial) homology groups} of a simplicial complex $K$ is the quotient group $\hom_k(K) = \ker~\partial_k/\im~\partial_{k+1}$ and will use the notation $\hom_*$ to refer to the homology groups of all dimensions $k$.
+The \textbf{$k$th (simplicial) homology group} of a simplicial complex $K$ is the quotient group $\hom_k(K) = \ker~\partial_k/\im~\partial_{k+1}$.
 Elements of $\hom_k(K)$ are equivalence classes $[x]$ of homologous $k$ cycles.
 That is, if $[x] = [y]$ for any $x,y\in C_k(K)$ then $x = y +\partial_{k+1}(z)$ for some $z\in C_{k+1}(K)$.
+Throughout, we will use the notation $\hom_*$ to refer to the homology of a space for all dimensions $k$.
 
 \paragraph{The equivalence of simplicial and singular homology}
 

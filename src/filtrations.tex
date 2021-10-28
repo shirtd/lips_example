@@ -5,27 +5,33 @@
 Given a topological space $X$ a \textbf{filtration} on $X$ is a nested sequence of subspaces $\emptyset= X_0\subseteq X_1\subseteq\ldots \subseteq X_n = X$.
 The \textbf{$k$th persistent homology module} of a filtration $\X$ on a topological space $X$ is defined as the persistence module $\H_k(\X)$ consisting of vector spaces $\hom_k(X_i)$ and linear maps $\hom_k(X_i)\to\hom_k(X_j)$ induced by inclusions $X_i\hookrightarrow X_j$ for $i\leq j$.
 We will use the notation $\H(\X)$ to refer to the persistent homology of $\X$ in all dimensions $k$.
-In particular, given a real-valued function $f: X\to\RR$, the \textbf{sub level set filtration} $\F$ of $f$ is the nested sequence of sub level sets $F_s := f^{-1}((-\infty,s])$.
-When convenient, we will refer to the persistent homology of a sub level set filtration $\H(\F)$ as the persistent homology $\H(f)$ of the function itself.
+Given a real-valued function $f: X\to\RR$, the \textbf{sub level set filtration} $\F$ of $f$ is the nested sequence of sub level sets $F_s := f^{-1}((-\infty,s])$.
+It is often natural to refer to the persistent homology of a sub level set filtration $\H(\F)$ as the persistent homology $\H(f)$ of the function itself.
 
-\paragraph{Filtrations on simplicial complexes}
+\paragraph{Induced and piecewise linear filtrations}
 
-Given a simplicial complex $K$ with $n$ vertices $V$ any function $\varphi : V\to\RR$ let $\varphi^I : K\to\RR$ be defined for $\sigma\in K$ as $\varphi^I(\sigma) = \max_{v\in\sigma} \varphi(v)$ so that the sub level sets $\Phi^I_s$ of $\varphi^I$ are subcomplexes of $K$.
-The resulting filtration is referred to as the \textbf{induced filtration} $\Phi^I = \{\Phi^I_s\}_{s\in\RR}$ of $\varphi$ on $K$.
-We can also define a function $\varphi^L : |K|\to\RR$ by extending $\varphi$ linearly over the geometric simplices of $\underline{K}$.
-That is, for any $x \in |K|$, let $\varphi^L(x) = \sum_{v\in V} x_v f(v)$.
-The \textbf{piecewise linear filtration} $\Phi^L = \{\Phi^L_s\}_{s\in\RR}$ of $\varphi$ is defined as the sequence of sub level sets $\Phi^L_s$ of $\varphi^L$, each a subspace of $|K|$ in $\RR^n$.
+Given a simplicial complex $K$ with $n$ vertices $V$ and a function $\varphi : V\to\RR$, let $\varphi^I : K\to\RR$ be defined for $\sigma\in K$ as
+\[\varphi^I(\sigma) = \max_{v\in\sigma} \varphi(v).\]
+The sub level sets $\Phi^I_s$ of $\varphi^I$ are subcomplexes of $K$, and the resulting filtration is referred to as the \textbf{induced filtration} $\Phi^I = \{\Phi^I_s\}_{s\in\RR}$ of $\varphi$ on $K$.
+
+We can also define a function $\varphi^L : |K|\to\RR$ by extending $\varphi$ linearly over the geometric simplices of $K$.
+That is, for any
+The \textbf{piecewise linear filtration} $\Phi^L = \{\Phi^L_s\}_{s\in\RR}$ of $\varphi$ is defined as the sequence of sub level sets $\Phi^L_s\subseteq |K|$ of $\varphi^L : |K|\to\RR$, defined for $x \in |K|$ as
+\[ \varphi^L(x) = \sum_{v\in V} x_v f(v).\]
 
 Because each sub level set $\Phi_s^I$ of the induced filtration is a subcomplex of $K$, the geometric realizations $|\Phi_s^I|$ are subspaces of $|K|$.
 In fact, the $|\Phi_s^L|$ are equal to the sub level sets of the piecewise constant extension $\varphi^C : |K|\to \RR$, defined for $x\in |K|$ as $\varphi^C(x) = \max\{\varphi(v)\mid x_v > 0\}$.
 Because $\varphi^C \geq \varphi^L$, $|\Phi_s^I|\subseteq \Phi_s^L$ for all $s\in\RR$.
+Let $|\Phi^I| := \{\Phi^I\}$ be the piecewise constant filtration, defined as the geometric realization of the induced filtration of $\varphi$.
+
+\paragraph{Deformation retractions of filtrations}\textbf{TODO}
 
 \begin{theorem}\label{thm:induce_linear_iso}
   Let $K$ be a simplicial complex and let $\varphi : V\to\RR$ be a function on its vertices.
   The persistent homology modules of the induced and piecewise linear filtrations $\H(\Phi^I)$ and $\H(\Phi^L)$ of $\varphi$ on $K$ and $|K|$, respectively, are naturally isomorphic with respect to maps induced by inclusions.
 \end{theorem}
 \begin{proof}
-  We will first show that the inclusion $|\Phi^I_s|\hookrightarrow \Phi^L_s$ is a homotopy equivalence that commutes with inclusions $|\Phi^I_s|\hookrightarrow |\Phi^I_t|$ and $\Phi^L_s\hookrightarrow \Phi^L_t$ for all $s\leq t\in\RR$.\textbf{TODO}
+  We will first show that the inclusion $|\Phi^I_s|\hookrightarrow \Phi^L_s$ is a homotopy equivalence that commutes with inclusions $|\Phi^I_s|\hookrightarrow |\Phi^I_t|$ and $\Phi^L_s\hookrightarrow \Phi^L_t$ for all $s\leq t\in\RR$.\textbf{TODO this as the def of a deformation reatraction of filtrations $|\Phi^I|$ and $\Phi^L$.}
   Because each $|\Phi^I_s|$ is the polytope of $\Phi^I_s$, the result will then follow from the equivalence of singular and simplicial homology.
 
   For any $s\in\RR$ let $V_s = \{ v\in V\mid \varphi(v)\leq s\}$ and define the affine projection of $x\in |K|$ as
